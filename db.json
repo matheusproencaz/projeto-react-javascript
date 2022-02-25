@@ -7,28 +7,40 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 36000,
+      "cost": 46620,
       "services": [
         {
-          "name": "Serviço 1",
-          "cost": "1000",
-          "description": "Serviço",
-          "id": "ed434a2b-e41e-49fb-9f3b-3cd4e48e1617"
+          "name": "Cleito",
+          "cost": "10000",
+          "description": "Cleiton XXXX",
+          "id": "03a4a86f-9597-405c-82ae-d0c0f449f962"
         },
         {
-          "name": "Serviço 2",
-          "cost": "15000",
-          "description": "Serviço 2",
-          "id": "19e45f5d-8d96-4ca6-beef-7c576e3b07c3"
-        },
-        {
-          "name": "Serviço 3",
-          "cost": "20000",
-          "description": "Serviço 3",
-          "id": "4b0e63e5-5101-4eed-addb-661a995c1683"
+          "name": "Contratar Dev Php",
+          "cost": "500",
+          "description": "Vai criar função de envio de e-mails.",
+          "id": "e4d4f6a5-7a53-4d56-83bc-a1c523ce966c"
         }
       ],
       "id": 1
+    },
+    {
+      "name": "Projeto 2",
+      "budget": "1000",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 100,
+      "services": [
+        {
+          "name": "Serviço 1 Projeto 2",
+          "cost": "100",
+          "description": "Sorvete",
+          "id": "7566ba2d-8a13-4ebc-bcdc-68ec8d0bed59"
+        }
+      ],
+      "id": 2
     }
   ],
   "categories": [
