@@ -1,9 +1,11 @@
+import { parse, v4 as uuidv4 } from 'uuid';
 import styles from './Project.module.css';
 import Loading from '../../layouts/Loading/Loading';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Container from '../../layouts/Container/Container';
 import ProjectForm from '../../projects/ProjectForm/ProjectForm';
+import ServiceForm from '../../service/ServiceForm';
 import Message from '../../layouts/Message/Message';
 
 function Project(){
@@ -32,14 +34,6 @@ function Project(){
     }, 300)
     }, [id]);
 
-    function toggleProjectForm() {
-        setShowProjectForm(!showProjectForm);
-    }
-    
-    function toggleServiceForm() {
-        setShowServiceForm(!showServiceForm);
-    }
-
     function editPost(project){
         setMessage('');
         //budget validation
@@ -64,6 +58,56 @@ function Project(){
             setTypeMessage('success')
         })
         .catch((e) => console.log(e));
+    }
+
+    function createService(project){
+        setMessage('');
+        //Last service
+        //Dessa forma você pega o último serviço adicionado, ou seja, o atual.
+        const lastService = project.services[project.services.length - 1]
+        lastService.id = uuidv4()
+
+        const lastServiceCost = lastService.cost;
+        
+        const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost);
+
+        //Maximum value validation
+        if(newCost > parseFloat(project.budget)) {
+            setMessage('Orçamento Ultrapassado, verifique o valor do serviço.');
+            setTypeMessage('error');
+            //Método .pop() retira o serviço que acabou de ser adicionado. Em uma array, ele retira o último valor do array.
+            project.services.pop();
+            return false;
+        }
+
+        project.cost = newCost;
+
+        //Update Project
+        fetch(`http://localhost:5000/projects/${project.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(project)
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            setMessage('Serviço adicionado com sucesso');
+            setTypeMessage('success');
+            setShowServiceForm(false);
+            //exibir serviços
+            console.log(data);
+            
+        })
+        .catch(err => console.log(err));
+    }
+
+    function toggleProjectForm() {
+        setShowProjectForm(!showProjectForm);
+    }
+    
+    function toggleServiceForm() {
+        setShowServiceForm(!showServiceForm);
     }
 
     return (<>
@@ -100,8 +144,13 @@ function Project(){
                             {!showServiceForm ? 'Adicionar serviço' : 'Fechar'}
                         </button>
                         <div className={styles.project_info}>
-                            {showServiceForm && 
-                                <div>Formulário do Serviço</div>}
+                            {showServiceForm && (
+                                <ServiceForm 
+                                handleSubmit={createService}
+                                btnText="Adicionar Serviço"
+                                projectData={project}
+                                />
+                            )}
                         </div>
                     </div>
                     <h2>Serviços</h2>

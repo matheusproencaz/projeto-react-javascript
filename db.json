@@ -1,14 +1,33 @@
 {
   "projects": [
     {
-      "name": "Projeto Atulizado",
-      "budget": "13000",
+      "name": "Projeto 1",
+      "budget": "100000",
       "category": {
-        "id": "1",
-        "name": "Infra"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 36000,
+      "services": [
+        {
+          "name": "Serviço 1",
+          "cost": "1000",
+          "description": "Serviço",
+          "id": "ed434a2b-e41e-49fb-9f3b-3cd4e48e1617"
+        },
+        {
+          "name": "Serviço 2",
+          "cost": "15000",
+          "description": "Serviço 2",
+          "id": "19e45f5d-8d96-4ca6-beef-7c576e3b07c3"
+        },
+        {
+          "name": "Serviço 3",
+          "cost": "20000",
+          "description": "Serviço 3",
+          "id": "4b0e63e5-5101-4eed-addb-661a995c1683"
+        }
+      ],
       "id": 1
     }
   ],
