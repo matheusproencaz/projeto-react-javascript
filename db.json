@@ -2,26 +2,13 @@
   "projects": [
     {
       "name": "Projeto 1",
-      "budget": "100000",
+      "budget": "1000000",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 46620,
-      "services": [
-        {
-          "name": "Cleito",
-          "cost": "10000",
-          "description": "Cleiton XXXX",
-          "id": "03a4a86f-9597-405c-82ae-d0c0f449f962"
-        },
-        {
-          "name": "Contratar Dev Php",
-          "cost": "500",
-          "description": "Vai criar função de envio de e-mails.",
-          "id": "e4d4f6a5-7a53-4d56-83bc-a1c523ce966c"
-        }
-      ],
+      "cost": 0,
+      "services": [],
       "id": 1
     },
     {
