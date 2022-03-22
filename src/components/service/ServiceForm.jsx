@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import Input from '../form/Input/Input';
 import SubmitButton from '../form/SubmitButton/SubmitButton';
-
 import styles from '../projects/ProjectForm/ProjectForm.module.css';
 
 function ServiceForm({ handleSubmit, btnText, projectData }){

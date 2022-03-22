@@ -104,7 +104,7 @@ function Project(){
     }
 
     function removeService(id, cost) {
-
+ 
         const servicesUpdated = project.services.filter(
             (service) => service.id !== id,
         )
